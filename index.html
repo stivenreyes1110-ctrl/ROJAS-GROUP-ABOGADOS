@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rojas Group Abogados - Consultoría y Defensa Jurídica</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0f172a;
+            --secondary: #c9a227;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --gray: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--light);
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 23, 42, .95);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 30px;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            transition: .3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .hero {
+            min-height: 100vh;
+            background:
+                linear-gradient(rgba(15, 23, 42, .85), rgba(15, 23, 42, .85)),
+                url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1400&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+
+        .hero h2 {
+            color: var(--secondary);
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 15px 35px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        section {
+            padding: 90px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .1);
+        }
+
+        .about-text h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, .08);
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .benefits {
+            background: var(--primary);
+            color: white;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .benefit {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .benefit h3 {
+            color: var(--secondary);
+            font-size: 2rem;
+        }
+
+        .process {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .step {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, .08);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .testimonial {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, .08);
+        }
+
+        .contact {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            margin-bottom: 30px;
+        }
+
+        footer {
+            background: #020617;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .whatsapp {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: #25D366;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 30px;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
+        }
+
+        .team-carousel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .member-card {
+            max-width: 1000px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            background: #fff;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+            transition: .3s;
+        }
+
+        .member-card img {
+            width: 320px;
+            height: 420px;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+
+        .member-info {
+            flex: 1;
+        }
+
+        .member-info h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .member-info h4 {
+            color: #b58b35;
+            margin-bottom: 20px;
+        }
+
+        .member-info p {
+            line-height: 1.8;
+        }
+
+        .carousel-btn {
+            width: 55px;
+            height: 55px;
+            border: none;
+            border-radius: 50%;
+            background: #b58b35;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .carousel-btn:hover {
+            transform: scale(1.1);
+        }
+
+        @media(max-width:768px) {
+
+            .member-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .member-card img {
+                width: 100%;
+                max-width: 320px;
+                height: 380px;
+            }
+
+        }
+
+        @media(max-width:768px) {
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Rojas Group Abogados</div>
+
+            <div class="nav-links">
+                <a href="#sobre">Sobre Nosotros</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#proceso">Proceso</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+        <h1></h1>
+        <h1></h1>
+        <h1></h1>
+
+        <img src="./logo.png"
+             alt="Rojas Group Abogados"
+             class="hero-logo">
+
+        <h1>Rojas Group Abogados</h1>
+
+        <h2>Consultoría y Defensa Jurídica Profesional</h2>
+
+        <p>
+            Protejo sus derechos con compromiso, experiencia y acompañamiento personalizado.
+            Obtenga asesoría legal clara y una estrategia efectiva para resolver sus necesidades jurídicas.
+        </p>
+
+        <div class="buttons">
+            <a href="#contacto" class="btn btn-primary">
+                Solicitar Consulta
+            </a>
+
+            <a href="https://wa.me/573001234567" class="btn btn-outline">
+                WhatsApp
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+    <section id="sobre">
+
+        <div class="section-title">
+            <h2>Conozca al Equipo de Rojas Group Abogados</h2>
+        </div>
+
+        <div class="team-carousel">
+
+            <button class="carousel-btn prev" onclick="changeMember(-1)">
+                &#10094;
+            </button>
+
+            <div class="member-card">
+
+                <img id="member-image"
+                    src="./luisa.png"
+                    alt="Integrante">
+
+                <div class="member-info">
+
+                    <h3 id="member-name">LUISA FERNANDA ROJAS RUIZ</h3>
+
+                    <h4 id="member-role">Abogada Especialista en derecho administrativo</h4>
+
+                    <p id="member-description">
+                        Especialista en derecho administrativo de la Universidad Nacional y Magister en derecho procesal.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <button class="carousel-btn next" onclick="changeMember(1)">
+                &#10095;
+            </button>
+
+        </div>
+
+    </section>
+
+    <section id="servicios">
+
+        <div class="section-title">
+            <h2>Servicios Jurídicos</h2>
+        </div>
+
+        <div class="services">
+
+            <div class="card">
+                <h3>Consultoría Jurídica</h3>
+                <p>
+                    Orientación legal especializada para prevenir riesgos,
+                    resolver dudas y tomar decisiones con seguridad.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Defensa Legal</h3>
+                <p>
+                    Representación profesional y defensa de sus derechos
+                    en procesos y conflictos jurídicos.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Revisión de Contratos</h3>
+                <p>
+                    Análisis y elaboración de documentos legales
+                    para proteger sus intereses.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Asesoría para Empresas</h3>
+                <p>
+                    Apoyo jurídico estratégico para fortalecer
+                    la seguridad legal de su organización.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="benefits">
+
+        <div class="section-title">
+            <h2 style="color:white;">¿Por Qué Elegirme?</h2>
+        </div>
+
+        <div class="benefits-grid">
+
+            <div class="benefit">
+                <h3>✓</h3>
+                <p>Atención personalizada</p>
+            </div>
+
+            <div class="benefit">
+                <h3>✓</h3>
+                <p>Comunicación clara</p>
+            </div>
+
+            <div class="benefit">
+                <h3>✓</h3>
+                <p>Estrategias efectivas</p>
+            </div>
+
+            <div class="benefit">
+                <h3>✓</h3>
+                <p>Confidencialidad total</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="proceso">
+
+        <div class="section-title">
+            <h2>Cómo Trabajamos</h2>
+        </div>
+
+        <div class="process">
+
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Consulta</h3>
+                <p>Escuchamos y analizamos su situación.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Evaluación</h3>
+                <p>Diseñamos una estrategia jurídica adecuada.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Acción</h3>
+                <p>Implementamos las soluciones legales necesarias.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Seguimiento</h3>
+                <p>Acompañamiento continuo durante el proceso.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section>
+
+        <div class="section-title">
+            <h2>Lo Que Dicen Nuestros Clientes</h2>
+        </div>
+
+        <div class="testimonial">
+
+            <p>
+                "Excelente atención, profesionalismo y acompañamiento permanente.
+                Gracias a la asesoría recibida pude resolver mi situación jurídica con tranquilidad."
+            </p>
+
+            <br>
+
+            <strong>★★★★★ Cliente Satisfecho</strong>
+
+        </div>
+
+    </section>
+
+    <section class="contact" id="contacto">
+
+        <h2>¿Necesita Asesoría Jurídica?</h2>
+
+        <p>
+            Agende una consulta con Rojas Group Abogados y reciba orientación profesional para proteger sus derechos.
+        </p>
+
+        <a href="https://wa.me/573001234567" class="btn btn-primary">
+            Agendar Consulta Ahora
+        </a>
+
+    </section>
+
+    <footer>
+
+        <h3>Rojas Group Abogados</h3>
+
+        <p>Consultoría Jurídica | Defensa Legal | Representación Profesional</p>
+
+        <p>📞 +57 300 123 4567</p>
+
+        <p>✉ contacto@RojasGroupAbogados.com</p>
+
+        <br>
+
+        <p>© 2026 Todos los derechos reservados.</p>
+
+    </footer>
+
+    <a class="whatsapp" href="https://wa.me/573001234567">
+        💬
+    </a>
+
+</body>
+<script>
+
+    const members = [
+
+        {
+            name: "LUISA FERNANDA ROJAS RUIZ",
+            role: "Abogada Especialista en derecho administrativo",
+            image: "./luisa.png",
+            description: "Especialista en derecho administrativo de la Universidad Nacional , Magister en derecho procesal abogada conciliadora"
+        },
+
+        {
+            name: "JOHANA PATRICIA ROJAS RUIZ",
+            role: "Abogada Especialista en derecho penal",
+            image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=900&q=80",
+            description: "Especialista en derecho penal,derechos humanos y derecho ambiental."
+        }
+
+    ];
+
+    let currentMember = 0;
+
+    function showMember(index) {
+
+        document.getElementById("member-name").textContent =
+            members[index].name;
+
+        document.getElementById("member-role").textContent =
+            members[index].role;
+
+        document.getElementById("member-image").src =
+            members[index].image;
+
+        document.getElementById("member-description").textContent =
+            members[index].description;
+    }
+
+    function changeMember(direction) {
+
+        currentMember += direction;
+
+        if (currentMember < 0) {
+            currentMember = members.length - 1;
+        }
+
+        if (currentMember >= members.length) {
+            currentMember = 0;
+        }
+
+        showMember(currentMember);
+    }
+
+</script>
+
+</html>
